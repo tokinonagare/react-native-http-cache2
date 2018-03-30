@@ -1,0 +1,33 @@
+{
+  "name": "react-native-http-cache2",
+  "version": "0.1.0",
+  "description": "Control http cache used by fetch/XMLHttpRequest",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/eslint/bin/eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tokinonagare/react-native-http-cache.git"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "http",
+    "cache"
+  ],
+  "author": "tokinonagare",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tokinonagare/react-native-http-cache/issues"
+  },
+  "homepage": "https://github.com/tokinonagare/react-native-http-cache#readme",
+  "devDependencies": {
+    "babel-eslint": "^4.1.6",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^2.1.1",
+    "eslint-plugin-import": "^0.12.1",
+    "eslint-plugin-react": "^3.13.1"
+  }
+}

@@ -1,0 +1,109 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/7.3.0/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.10
+3 info using node@v7.3.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/harry/Github/work/react-native-http-cache',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/harry/.npm/react-native-http-cache2/0.1.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/harry/.npm correctMkdir not in flight; initializing
+10 info lifecycle react-native-http-cache2@0.1.0~prepublish: react-native-http-cache2@0.1.0
+11 silly lifecycle react-native-http-cache2@0.1.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/harry/.npm/react-native-http-cache2/0.1.0/package.tgz',
+12 verbose tar pack   '/Users/harry/Github/work/react-native-http-cache' ]
+13 verbose tarball /Users/harry/.npm/react-native-http-cache2/0.1.0/package.tgz
+14 verbose folder /Users/harry/Github/work/react-native-http-cache
+15 verbose addLocalTarball adding from inside cache /Users/harry/.npm/react-native-http-cache2/0.1.0/package.tgz
+16 verbose correctMkdir /Users/harry/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd react-native-http-cache2@0.1.0
+18 verbose afterAdd /Users/harry/.npm/react-native-http-cache2/0.1.0/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/harry/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/harry/.npm/react-native-http-cache2/0.1.0/package/package.json written
+21 silly publish { name: 'react-native-http-cache2',
+21 silly publish   version: '0.1.0',
+21 silly publish   description: 'Control http cache used by fetch/XMLHttpRequest',
+21 silly publish   main: 'index.js',
+21 silly publish   scripts: { test: 'node node_modules/eslint/bin/eslint .' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/tokinonagare/react-native-http-cache.git' },
+21 silly publish   keywords: [ 'react-native', 'ios', 'android', 'http', 'cache' ],
+21 silly publish   author: { name: 'tokinonagare' },
+21 silly publish   license: 'ISC',
+21 silly publish   bugs: { url: 'https://github.com/tokinonagare/react-native-http-cache/issues' },
+21 silly publish   homepage: 'https://github.com/tokinonagare/react-native-http-cache#readme',
+21 silly publish   devDependencies:
+21 silly publish    { 'babel-eslint': '^4.1.6',
+21 silly publish      eslint: '^1.10.3',
+21 silly publish      'eslint-config-airbnb': '^2.1.1',
+21 silly publish      'eslint-plugin-import': '^0.12.1',
+21 silly publish      'eslint-plugin-react': '^3.13.1' },
+21 silly publish   readme: 'React Native http cache control for both fetch/XMLHttpRequest and ImageView\n\n- [x] iOS\n- [x] Android\n\n## Installation\n\n```sh\n$ npm install react-native-http-cache2 --save\n```\n\n## iOS: Linking in your XCode project\n\n- Link `react-native-http-cache2` library from your `node_modules/react-native-http-cache2/ios` folder like its\n  [described here](http://facebook.github.io/react-native/docs/linking-libraries-ios.html).\n  Don\'t forget to add it to "Build Phases" of project.\n\n## Android: Linking to your gradle Project\n\n- Add following lines into `android/settings.gradle`\n\n```\ninclude \':RCTHttpCache\'\nproject(\':RCTHttpCache\').projectDir = new File(rootProject.projectDir, \'../node_modules/react-native-http-cache2/android\')\n```\n\n- Add following lines into your `android/app/build.gradle` in section `dependencies`\n\n```\n...\ndependencies {\n   ...\n   compile project(\':RCTHttpCache\')    // Add this line only.\n}\n```\n\n- Add following lines into `MainApplication.java`\n\n```java\n...\nimport cn.reactnative.httpcache.HttpCachePackage;\n      // Add this line before public class MainApplication\n\npublic class MainApplication extends Application implements ReactApplication {\n\n  private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {\n    @Override\n    protected boolean getUseDeveloperSupport() {\n      return BuildConfig.DEBUG;\n    }\n\n    @Override\n    protected List<ReactPackage> getPackages() {\n      return Arrays.<ReactPackage>asList(\n          new HttpCachePackage(), // Add this line\n          new MainReactPackage()\n      );\n    }\n  };\n\n  @Override\n  public ReactNativeHost getReactNativeHost() {\n      return mReactNativeHost;\n  }\n}\n```\n\n- Add these lines to \'proguard-rules.pro\' if you need to minify your java code:\n\n```\n-keep class com.facebook.cache.disk.DiskStorageCache {\n   private boolean maybeUpdateFileCacheSize();\n}\n```\n\n## JavaScript: import all and invoke!\n\n```js\nimport * as CacheManager from \'react-native-http-cache2\';\n\n// invoke API directly when in need\nCacheManager.clear();\n\n```\n\n## API Documentation\n\n#### clear()\n\nClear cache for all type.\n\nReturn a promise which indicate the clear state.\n\n#### getSize()\n\nGet cache size for all type.\n\nReturn a promise that contain the cache size(in bytes).\n\n#### clearHttpCache()\n\nClear cache for fetch/ajax only.\n\nReturn a promise which indicate the clear state.\n\n#### getHttpCacheSize()\n\nGet cache size for fetch/ajax only.\n\nReturn a promise that contain the cache size(in bytes).\n\n#### clearImageCache()\n\nClear cache for ImageView only.\n\nReturn a promise which indicate the clear state.\n\n#### getImageCacheSize()\n\nGet cache size for ImageView only.\n\nReturn a promise that contain the cache size(in bytes).\n\n## Authors\n\n- [Deng Yun](https://github.com/tdzl2003) from [React-Native-CN](https://github.com/reactnativecn)\n- [Lv Bingru](https://github.com/lvbingru) from [React-Native-CN](https://github.com/reactnativecn)\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '6b0765127f279977693b63c6b34ea31f275d183c',
+21 silly publish   _id: 'react-native-http-cache2@0.1.0',
+21 silly publish   _shasum: 'db32c88dab01ea71373ff43136c14d7752ce28ae',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name react-native-http-cache2
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npm.taobao.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'react-native-http-cache2',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'react-native-http-cache2',
+26 silly mapToRegistry   name: 'react-native-http-cache2',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npm.taobao.org/react-native-http-cache2
+28 verbose publish registryBase https://registry.npm.taobao.org/
+29 silly publish uploading /Users/harry/.npm/react-native-http-cache2/0.1.0/package.tgz
+30 verbose request uri https://registry.npm.taobao.org/react-native-http-cache2
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 5:59:27 PM
+33 verbose request id 1bb40a449003ae29
+34 http request PUT https://registry.npm.taobao.org/react-native-http-cache2
+35 http 403 https://registry.npm.taobao.org/react-native-http-cache2
+36 verbose headers { date: 'Fri, 30 Mar 2018 09:59:27 GMT',
+36 verbose headers   'content-type': 'application/json; charset=utf-8',
+36 verbose headers   'content-length': '87',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-current-requests': '1',
+36 verbose headers   vary: 'Origin',
+36 verbose headers   'x-readtime': '4' }
+37 verbose request invalidating /Users/harry/.npm/registry.npm.taobao.org/react-native-http-cache2 on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: no_perms Private mode enable, only admin can publish this module: react-native-http-cache2
+39 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+39 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+39 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:187:22)
+39 verbose stack     at emitTwo (events.js:106:13)
+39 verbose stack     at Request.emit (events.js:191:7)
+39 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+39 verbose stack     at emitOne (events.js:96:13)
+39 verbose stack     at Request.emit (events.js:188:7)
+39 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:969:12)
+40 verbose statusCode 403
+41 verbose pkgid react-native-http-cache2
+42 verbose cwd /Users/harry/Github/work/react-native-http-cache
+43 error Darwin 16.7.0
+44 error argv "/usr/local/Cellar/node/7.3.0/bin/node" "/usr/local/bin/npm" "publish"
+45 error node v7.3.0
+46 error npm  v3.10.10
+47 error code E403
+48 error no_perms Private mode enable, only admin can publish this module: react-native-http-cache2
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]
